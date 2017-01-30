@@ -7,8 +7,9 @@
       template="template.xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     
+    
+    
     <h:form>
-        <h1>BB</h1>
         
         <p:fieldset legend="Cadastro de Clientes">
             <p:panelGrid columns="4">
@@ -41,22 +42,50 @@
                 <p:inputText value="#{clienteBean.cliente.estado}"></p:inputText>
                 <h:outputLabel value="Cidade"></h:outputLabel>
                 <p:inputText value="#{clienteBean.cliente.cidade}"></p:inputText>
-        
+            
                 
             </p:panelGrid>
-            <p:toolbarGroup>
-            <p:commandButton value="Cadastrar" action="#{clienteBean.adicionarCliente()}" update="@form"></p:commandButton>
-            <p:commandButton value="Excluir" action="#{clienteBean.removerCliente()}" update="@form"></p:commandButton>
-            <p:commandButton value="Atualizar" action="#{clienteBean.atualizarCliente()}" update="@form"></p:commandButton>
-            </p:toolbarGroup>
-            <p:dataTable value="#{clienteBean.clientes}" var="Cliente">
+                <div align="center" margin="10px">
+                    <p:toolbarGroup>
+                
+                    <p:commandButton value="Cadastrar" action="#{clienteBean.adicionarCliente()}" update="@form"></p:commandButton>
+                    <p:commandButton value="Excluir" action="#{clienteBean.removerCliente()}" update="@form"></p:commandButton>
+                    <p:commandButton value="Atualizar" action="#{clienteBean.atualizarCliente()}" update="@form"></p:commandButton>
+                
+                </p:toolbarGroup>
+                </div>
+            
+            
+            <p:dataTable id="clientes" var="cliente" value="#{clienteBean.clientes}" rowKey="#{clienteBean.cliente.cpf}"
+                 selection="#{clienteBean.clientes}" selectionMode="single">
+                <f:facet name="header">
+                 Lista de Clientes
+                </f:facet>
                 <p:column headerText="Nome" sortBy="#{cliente.nome}">
                     <h:outputText value="#{cliente.nome}"></h:outputText>
                 </p:column>
                 <p:column headerText="CPF" sortBy="#{cliente.cpf}">
                     <h:outputText value="#{cliente.cpf}"></h:outputText>
                 </p:column>
-            </p:dataTable>
+                <p:column headerText="Data Nascimento" sortBy="#{cliente.dataNasc}">
+                    <h:outputText value="#{cliente.dataNasc}"></h:outputText>
+                </p:column>
+                <p:column headerText="Sexo" sortBy="#{cliente.sexo}">
+                    <h:outputText value="#{cliente.sexo}"></h:outputText>
+                </p:column>
+                <p:column headerText="Telefone" sortBy="#{cliente.telefone}">
+                    <h:outputText value="#{cliente.telefone}"></h:outputText>
+                </p:column>
+                <p:column headerText="Email" sortBy="#{cliente.email}">
+                    <h:outputText value="#{cliente.email}"></h:outputText>
+                </p:column>
+                <p:column headerText="Rua" sortBy="#{cliente.rua}">
+                    <h:outputText value="#{cliente.nome}"></h:outputText>
+                </p:column>
+                <p:column headerText="CPF" sortBy="#{cliente.cpf}">
+                    <h:outputText value="#{cliente.cpf}"></h:outputText>
+                </p:column>
+            </p:dataTable> 
         </p:fieldset>
     </h:form>
     
