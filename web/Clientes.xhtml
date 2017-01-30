@@ -19,17 +19,16 @@
                 <h:outputLabel value="Data de Nascimento"></h:outputLabel>
                 <p:calendar value="#{clienteBean.cliente.dataNasc}"></p:calendar>
                 <h:outputLabel value="Sexo"></h:outputLabel>
-                <p:selectManyCheckbox id="basic" value="#{clienteBean.cliente.sexo}">
+                <p:selectOneRadio id="sexo" value="#{clienteBean.cliente.sexo}">
                  <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
                  <f:selectItem itemLabel="Feminino" itemValue="Feminino" />
-                 <f:selectItem itemLabel="Indefinido" itemValue="Indefinido" />
-                </p:selectManyCheckbox>
+                </p:selectOneRadio>
                 <h:outputLabel value="Telefone"></h:outputLabel>
                 <p:inputMask mask="(99)9999-9999" value="#{clienteBean.cliente.telefone}"></p:inputMask>
                 <h:outputLabel value="Email"></h:outputLabel>
                 <p:inputText value="#{clienteBean.cliente.email}"></p:inputText>
                 <h:outputLabel value="Rua"></h:outputLabel>
-                <p:inputText value="#{clienteBean.cliente.rua}" size="30"></p:inputText>
+                <p:inputText value="#{clienteBean.cliente.rua}" size="2"></p:inputText>
                 <h:outputLabel value="Complemento"></h:outputLabel>
                 <p:inputText value="#{clienteBean.cliente.complemento}"></p:inputText>
                 <h:outputLabel value="Numero"></h:outputLabel>
@@ -42,13 +41,14 @@
                 <p:inputText value="#{clienteBean.cliente.estado}"></p:inputText>
                 <h:outputLabel value="Cidade"></h:outputLabel>
                 <p:inputText value="#{clienteBean.cliente.cidade}"></p:inputText>
-        <p:toolbarGroup>
+        
+                
+            </p:panelGrid>
+            <p:toolbarGroup align = "center">
             <p:commandButton value="Cadastrar" action="#{clienteBean.adicionarCliente()}" update="@form"></p:commandButton>
             <p:commandButton value="Excluir" action="#{clienteBean.removerCliente()}" update="@form"></p:commandButton>
             <p:commandButton value="Atualizar" action="#{clienteBean.atualizarCliente()}" update="@form"></p:commandButton>
-        </p:toolbarGroup>
-                
-            </p:panelGrid>
+            </p:toolbarGroup>
             <p:dataTable value="#{clienteBean.clientes}" var="Cliente">
                 <p:column headerText="Nome" sortBy="#{cliente.nome}">
                     <h:outputText value="#{cliente.nome}"></h:outputText>

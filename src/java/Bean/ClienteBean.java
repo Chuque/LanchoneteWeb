@@ -21,6 +21,18 @@ public class ClienteBean {
         new ClienteDAO().create(cliente);
         cliente = new Cliente();
     }
+    public void removerCliente()
+    {
+        clientes.remove(cliente);
+        new ClienteDAO().create(cliente);
+        cliente = new Cliente();
+    }
+    public void alterarCliente()
+    {
+        clientes.add(cliente);
+        new ClienteDAO().create(cliente);
+        cliente = new Cliente();
+    }
     
     public Pessoa getCliente()
     {
