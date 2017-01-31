@@ -15,13 +15,13 @@
                 <h:outputLabel value="Nome"></h:outputLabel>
                 <p:inputText value="#{clienteBean.cliente.nome}"></p:inputText>
                 <h:outputLabel value="CPF"></h:outputLabel>
-                <p:inputMask mask="999.999.999-99" value="#{clienteBean.cliente.cpf}"></p:inputMask>
+                <p:inputMask mask="99999999999" value="#{clienteBean.cliente.cpf}"></p:inputMask>
                 <h:outputLabel value="Data de Nascimento"></h:outputLabel>
                 <p:calendar value="#{clienteBean.cliente.dataNasc}"></p:calendar>
                 <h:outputLabel value="Sexo"></h:outputLabel>
                 <p:selectOneRadio id="sexo" value="#{clienteBean.cliente.sexo}">
-                 <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
-                 <f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+                 <f:selectItem itemLabel="Masculino" itemValue="M" />
+                 <f:selectItem itemLabel="Feminino" itemValue="F" />
                 </p:selectOneRadio>
                 <h:outputLabel value="Telefone"></h:outputLabel>
                 <p:inputMask mask="(99)9999-9999" value="#{clienteBean.cliente.telefone}"></p:inputMask>
